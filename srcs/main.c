@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 18:01:45 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/23 10:49:23 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/23 11:02:05 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int main(void)
 {
-    char s[4] = "Hola";
-    size_t  len;
+    const char *s = "Hola";
+    char *a = NULL;
 
-    len = ft_strlen(s);
-    printf("TAMAÑO: %zu", len);
+    a = ft_strcpy(a, s);
+    printf("STRING: %s", a);
     return (0);
 }
