@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 10:36:39 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/17 18:02:15 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/23 10:47:26 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 size_t  ft_strlen(const char *s);
 char    *ft_strcpy(char *dst, const char *src);

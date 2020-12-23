@@ -6,11 +6,11 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 18:01:45 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/17 18:04:37 by rcabezas         ###   ########.fr       */
+/*   Updated: 2020/12/23 10:49:23 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "../includes/libasm.h"
 
 int main(void)
 {
@@ -18,6 +18,6 @@ int main(void)
     size_t  len;
 
     len = ft_strlen(s);
-    printf("TAMAÑO: %i", len);
+    printf("TAMAÑO: %zu", len);
     return (0);
 }
