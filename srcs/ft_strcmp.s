@@ -2,21 +2,22 @@ section .text
 	global _ft_strcmp
 
 _ft_strcmp :
-    mov rcx, -1
+    mov rcx, 0
 
 _loop :
-    inc rcx
     mov dl, BYTE [rdi+rcx]
     cmp dl, 0
     je _exit
-    mov cl, BYTE [rsi+rcx]
-    cmp cl, 0
+    mov al, BYTE [rsi+rcx]
+    cmp al, 0
     je _exit
-    cmp dl, cl
+    cmp al, dl
     jne _exit
+    inc rcx
     jmp _loop
 
 _exit :
-    mov al, dl
-    sub al, cl
+    movzx rax, al
+    movzx rdx, dl
+    sub rax, rdx
     ret

@@ -13,5 +13,5 @@ loop :
     inc rax
     jmp main
 
-exit:
+exit :
     ret
