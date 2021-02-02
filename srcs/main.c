@@ -6,18 +6,23 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 18:01:45 by rcabezas          #+#    #+#             */
-/*   Updated: 2020/12/23 11:02:05 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/02/02 11:42:57 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libasm.h"
+#include <string.h>
 
 int main(void)
 {
     const char *s = "Hola";
-    char *a = NULL;
+    const char *a = "Hola";
+    int c;
+    int b;
 
-    a = ft_strcpy(a, s);
-    printf("STRING: %s", a);
+    c = ft_strcmp(a, s);
+    b = strcmp(a, s);
+    printf("RETURN: %d\n", c);
+    printf("RETURN Original: %d\n", b);
     return (0);
 }
