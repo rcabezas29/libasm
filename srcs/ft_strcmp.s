@@ -6,9 +6,9 @@ _ft_strcmp :
 
 _loop :
     mov al, BYTE [rdi + rcx]
+    mov dl, BYTE [rsi + rcx]
     cmp al, 0
     je _exit
-    mov dl, BYTE [rsi + rcx]
     cmp dl, 0
     je _exit
     cmp al, dl
