@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 18:01:45 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/02/02 13:55:33 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/02/04 10:40:29 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void)
 {
     const char *s = "Hola";
-    const char *a = "Hola";
+    const char *a = "Holas";
     int c;
     int b;
 
