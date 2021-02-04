@@ -5,11 +5,11 @@ _ft_strcmp :
     mov rcx, 0
 
 _loop :
-    mov dl, BYTE [rdi+rcx]
-    cmp dl, 0
-    je _exit
-    mov al, BYTE [rsi+rcx]
+    mov al, BYTE [rdi + rcx]
     cmp al, 0
+    je _exit
+    mov dl, BYTE [rsi + rcx]
+    cmp dl, 0
     je _exit
     cmp al, dl
     jne _exit
@@ -17,7 +17,7 @@ _loop :
     jmp _loop
 
 _exit :
-    movzx rax, al
     movzx rdx, dl
+    movzx rax, al
     sub rax, rdx
     ret
