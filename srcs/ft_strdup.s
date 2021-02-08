@@ -6,9 +6,12 @@ section .text
 
 _ft_strdup :
     call _ft_strlen
+    inc rax
+    push rdi
     mov rdi, rax
     call _malloc
-    mov rsi, rdi
+    pop rsi
     mov rdi, rax
     call _ft_strcpy
+    mov rax, rdi
     ret
