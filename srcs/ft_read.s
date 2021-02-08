@@ -1,5 +1,6 @@
 section .text
 	global _ft_read
+    extern ___error
 
 _ft_read :
     mov rax, 0x2000005
@@ -16,8 +17,12 @@ _ft_read :
     jmp _exit
 
 _exit_error :
-    mov rax, -1
-    ret
-
+    push rax
+	call ___error
+	mov rdx, rax
+	pop rax
+	mov [rdx], rax
+	ret
+    
 _exit :
     ret

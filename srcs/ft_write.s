@@ -1,5 +1,6 @@
 section .text
 	global _ft_write
+	extern ___error
 
 _ft_write:
 	mov r8, rdx
@@ -8,8 +9,12 @@ _ft_write:
 	jc exit_error
 	jmp exit
 
-exit_error:
-	mov rax, -1
+exit_error :
+	push rax
+	call ___error
+	mov rdx, rax
+	pop rax
+	mov [rdx], rax
 	ret
 
 exit:
