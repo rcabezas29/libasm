@@ -15,6 +15,7 @@ exit_error :
 	mov rdx, rax
 	pop rax
 	mov [rdx], rax
+	mov rax, -1
 	ret
 
 exit:

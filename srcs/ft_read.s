@@ -3,15 +3,7 @@ section .text
     extern ___error
 
 _ft_read :
-    mov rax, 0x2000005
-    mov rbx, rdi
-    mov rcx, 0
-    mov rdx, 0777
-    syscall
-    jc _exit_error
     mov rax, 0x2000003
-    mov rbx, rdi
-    mov rcx, rsi
     syscall
     jc _exit_error
     jmp _exit
@@ -22,6 +14,7 @@ _exit_error :
 	mov rdx, rax
 	pop rax
 	mov [rdx], rax
+    mov rax, -1
 	ret
     
 _exit :
