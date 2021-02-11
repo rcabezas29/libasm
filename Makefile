@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/29 10:34:30 by rcabezas          #+#    #+#              #
-#    Updated: 2020/12/23 10:51:04 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/02/11 10:22:38 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.s=.o)
 
 %.o	: %.s
-	nasm -f macho64 $< -o $@
+	@nasm -f macho64 $< -o $@
 
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
@@ -31,8 +31,8 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 try: all
-	gcc -Wall -Wextra -Werror -I ./includes/libasm.h libasm.a srcs/main.c -o try_libasm
-	./try_libasm
+	@gcc -Wall -Wextra -Werror -I ./includes/libasm.h libasm.a srcs/main.c -o try_libasm
+	@./try_libasm
 
 clean:
 	@$(RM) $(OBJS)
