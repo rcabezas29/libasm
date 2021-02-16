@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/29 10:34:30 by rcabezas          #+#    #+#              #
-#    Updated: 2021/02/11 10:22:38 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/02/16 11:31:36 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,5 +40,6 @@ clean:
 fclean:	clean
 	@$(RM) $(NAME)
 	@$(RM) try_libasm
+	@$(RM) prueba.txt
 
 re:		fclean all
