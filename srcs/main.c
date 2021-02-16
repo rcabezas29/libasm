@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 18:01:45 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/02/11 11:49:48 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/02/16 11:27:06 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int check_strlen()
     char *b = "";
     char *c = "Hola que tal";
     char *d = "\n";
-    char *e = "fsdfwefssffdfwesdavarRAVSR";
+    char *e = "fsdfwefssffdfwesdaxccbzdfnsddgsrbzdfbaerbzdbdrbzbaerb<sfbtbstdhsvarRAVSR";
 
     printf("\033[0;32m");
     printf("---------------\n");
@@ -50,15 +50,24 @@ int check_strcpy()
     char *ret;
     
     memset(buff, '\0', sizeof(buff));
-    ret = strcpy(buff, a);
     printf("\033[0;32m");
     printf("---------------\n");
     printf("---FT_STRCPY---\n");
     printf("---------------\n\n");
     printf("\033[0m");
+    ret = strcpy(buff, a);
     printf("EXPECTED RET: %s\n", ret);
     printf("EXPECTED DEST: %s\n", buff);
+    printf("\n");
+    ret = ft_strcpy(buff, a);
+    printf("ACTUAL RET: %s\n", ret);
+    printf("ACTUAL DEST: %s\n", buff);
     printf("----------------------\n");
+    a = "";
+    ret = strcpy(buff, a);
+    printf("EXPECTED RET: %s\n", ret);
+    printf("EXPECTED DEST: %s\n", buff);
+    printf("\n");
     ret = ft_strcpy(buff, a);
     printf("ACTUAL RET: %s\n", ret);
     printf("ACTUAL DEST: %s\n", buff);
@@ -79,6 +88,9 @@ int check_strcmp()
     printf("---FT_STRCMP---\n");
     printf("---------------\n\n");
     printf("\033[0m");
+    printf("EXPECTED RET: %d\n", strcmp(b, b));
+    printf("ACTUAL RET: %d\n", ft_strcmp(b, b));
+    printf("----------------------\n");
     printf("EXPECTED RET: %d\n", strcmp(a, b));
     printf("ACTUAL RET: %d\n", ft_strcmp(a, b));
     printf("----------------------\n");
@@ -100,7 +112,7 @@ int check_strcmp()
 int check_write()
 {
     char *a = "Hola\n";
-	char *b = "";
+    int fd;
 
     printf("\033[0;32m");
 	printf("---------------\n");
@@ -110,8 +122,9 @@ int check_write()
 	printf("EXPECTED RET: %zd\n", write(1, a, 7));
 	printf("ACTUAL RET: %zd\n", ft_write(1, a, 7));
     printf("----------------------\n");
-	printf("EXPECTED RET: %zd\n", write(1, b, 0));
-	printf("ACTUAL RET: %zd\n", ft_write(1, b, 0));
+    fd = open("prueba.txt", O_CREAT | O_WRONLY);
+	printf("EXPECTED RET: %zd\n", write(fd, "Buenas noches a todos", 22));
+	printf("ACTUAL RET: %zd\n", ft_write(fd, "Buenas noches a todos", 22));
     printf("----------------------\n");
 	printf("EXPECTED RET: %zd\n", write(-7, NULL, 7));
 	printf("ACTUAL RET: %zd\n", ft_write(-7, NULL, 7));
@@ -122,6 +135,7 @@ int check_write()
 int check_read()
 {
     char *buff[40];
+    int fd;
 
     memset(buff, '\0', sizeof(buff));
     printf("\033[0;32m");
@@ -129,36 +143,43 @@ int check_read()
     printf("---FT_READ---\n");
     printf("---------------\n\n");
     printf("\033[0m");
-	printf("EXPECTED RET: %zd\n", read(1, buff, 7));
-	printf("ACTUAL RET: %zd\n", ft_read(1, buff, 7));
+	printf("EXPECTED RET: %zd\n", read(1, buff, 40));
+	printf("ACTUAL RET: %zd\n", ft_read(1, buff, 40));
     printf("----------------------\n");
-	printf("EXPECTED RET: %zd\n", read(1, buff, 0));
-	printf("ACTUAL RET: %zd\n", ft_read(1, buff, 0));
+    fd = open("prueba_read.txt", O_RDONLY);
+	printf("EXPECTED RET: %zd\n", read(fd, buff, 22));
+    close(fd);
+    fd = open("prueba_read.txt", O_RDONLY);
+	printf("ACTUAL RET: %zd\n", ft_read(fd, buff, 22));
+    close(fd);
     printf("----------------------\n");
-	printf("EXPECTED RET: %zd\n", read(-7, NULL, 7));
-	printf("ACTUAL RET: %zd\n", ft_read(-7, NULL, 7));
+	printf("EXPECTED RET: %zd\n", read(-7, NULL, 40));
+	printf("ACTUAL RET: %zd\n", ft_read(-7, NULL, 40));
     printf("----------------------\n\n");
     return (0);
 }
 
 int check_strdup()
 {
-    char *a = "hola";
+    char *a = "holaflkgmnmlfkkndkkbdbndlffbnnld";
     char *b = "";
     char *ret;
+    char *my_ret;
 
     ret = strdup(a);
+    my_ret = ft_strdup(a);
     printf("\033[0;32m");
     printf("---------------\n");
     printf("---FT_STRDUP---\n");
     printf("---------------\n\n");
     printf("\033[0m");
     printf("EXPECTED RET: %s\n", ret);
-    printf("ACTUAL RET: %s\n", ret);
+    printf("ACTUAL RET: %s\n", my_ret);
     printf("----------------------\n");
     ret = strdup(b);
+    my_ret = ft_strdup(b);
     printf("EXPECTED RET: %s\n", ret);
-    printf("ACTUAL RET: %s\n", ret);
+    printf("ACTUAL RET: %s\n", my_ret);
     printf("----------------------\n\n\n");
     return (0);
 }
