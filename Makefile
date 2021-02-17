@@ -6,7 +6,7 @@
 #    By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/29 10:34:30 by rcabezas          #+#    #+#              #
-#    Updated: 2021/02/16 11:31:36 by rcabezas         ###   ########.fr        #
+#    Updated: 2021/02/17 10:29:25 by rcabezas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 try: all
-	@gcc -Wall -Wextra -Werror -I ./includes/libasm.h libasm.a srcs/main.c -o try_libasm
+	@gcc -Wall -Wextra -Werror -I. srcs/main.c -L. -lasm -o try_libasm
 	@./try_libasm
 
 clean:
