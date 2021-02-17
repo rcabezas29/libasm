@@ -6,7 +6,7 @@
 /*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 18:01:45 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/02/16 11:27:06 by rcabezas         ###   ########.fr       */
+/*   Updated: 2021/02/17 11:13:14 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int check_strcpy()
     char *a = "hola";
     char buff[40];
     char *ret;
-    
-    memset(buff, '\0', sizeof(buff));
+
     printf("\033[0;32m");
     printf("---------------\n");
     printf("---FT_STRCPY---\n");
@@ -71,7 +70,7 @@ int check_strcpy()
     ret = ft_strcpy(buff, a);
     printf("ACTUAL RET: %s\n", ret);
     printf("ACTUAL DEST: %s\n", buff);
-    printf("----------------------\n\n\n");
+    printf("----------------------\n\n");
     return (0);
 }
 
@@ -80,7 +79,7 @@ int check_strcmp()
     char *a = "hola";
     char *b = "";
     char *c = "Hola que tal";
-    char *d = "hola";
+    char *d = "hola.";
     char *e = "hoda";
 
     printf("\033[0;32m");
@@ -114,6 +113,7 @@ int check_write()
     char *a = "Hola\n";
     int fd;
 
+    errno = 0;
     printf("\033[0;32m");
 	printf("---------------\n");
     printf("---FT_WRITE---\n");
@@ -125,9 +125,12 @@ int check_write()
     fd = open("prueba.txt", O_CREAT | O_WRONLY);
 	printf("EXPECTED RET: %zd\n", write(fd, "Buenas noches a todos", 22));
 	printf("ACTUAL RET: %zd\n", ft_write(fd, "Buenas noches a todos", 22));
+    printf("ERRNO: %d\n", errno);
     printf("----------------------\n");
+    errno = 0;
 	printf("EXPECTED RET: %zd\n", write(-7, NULL, 7));
 	printf("ACTUAL RET: %zd\n", ft_write(-7, NULL, 7));
+    printf("ERRNO: %d\n", errno);
     printf("----------------------\n\n");
     return (0);
 }
@@ -137,6 +140,7 @@ int check_read()
     char *buff[40];
     int fd;
 
+    errno = 0;
     memset(buff, '\0', sizeof(buff));
     printf("\033[0;32m");
 	printf("---------------\n");
@@ -151,10 +155,13 @@ int check_read()
     close(fd);
     fd = open("prueba_read.txt", O_RDONLY);
 	printf("ACTUAL RET: %zd\n", ft_read(fd, buff, 22));
+    printf("ERRNO: %d\n", errno);
     close(fd);
+    errno = 0;
     printf("----------------------\n");
 	printf("EXPECTED RET: %zd\n", read(-7, NULL, 40));
 	printf("ACTUAL RET: %zd\n", ft_read(-7, NULL, 40));
+    printf("ERRNO: %d\n", errno);
     printf("----------------------\n\n");
     return (0);
 }
@@ -180,7 +187,7 @@ int check_strdup()
     my_ret = ft_strdup(b);
     printf("EXPECTED RET: %s\n", ret);
     printf("ACTUAL RET: %s\n", my_ret);
-    printf("----------------------\n\n\n");
+    printf("----------------------\n\n");
     return (0);
 }
 
