@@ -1,0 +1,3 @@
+# C gitattributes
+*.pbxproj merge=union
+*.c  text
